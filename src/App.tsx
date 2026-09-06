@@ -10,6 +10,7 @@ import { Loader } from './components/Loader';
 import { Todo } from './types/Todo';
 import { getUser } from './api';
 import { User } from './types/User';
+import { getTodos } from './api';
 
 export const App: React.FC = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
@@ -35,14 +36,10 @@ export const App: React.FC = () => {
   });
 
   useEffect(() => {
-    fetch(
-      'https://mate-academy.github.io/react_dynamic-list-of-todos/api/todos.json',
-    )
-      .then(response => response.json())
-      .then(data => {
-        setTodos(data);
-        setIsLoading(false);
-      });
+    getTodos().then(data => {
+      setTodos(data);
+      setIsLoading(false);
+    });
   }, []);
 
   useEffect(() => {

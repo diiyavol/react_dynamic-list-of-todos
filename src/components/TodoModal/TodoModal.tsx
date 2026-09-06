@@ -2,6 +2,7 @@ import React from 'react';
 import { Loader } from '../Loader';
 import { Todo } from '../../types/Todo';
 import { User } from '../../types/User';
+import classNames from 'classnames';
 
 type Props = {
   load: boolean;
@@ -43,9 +44,9 @@ export const TodoModal: React.FC<Props> = ({ load, todo, user, close }) => {
 
             <p className="block" data-cy="modal-user">
               <strong
-                className={
-                  todo.completed ? 'has-text-success' : 'has-text-danger'
-                }
+                className={classNames(
+                  todo.completed ? 'has-text-success' : 'has-text-danger',
+                )}
               >
                 {todo.completed ? 'Done' : 'Planned'}
               </strong>
