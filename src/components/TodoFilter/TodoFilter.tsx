@@ -7,7 +7,6 @@ export const TodoFilter: React.FC<Props> = ({
   onStatusChange,
   onQueryChange,
 }) => {
-  const [status, setStatus] = useState('all');
   const [query, setQuery] = useState('');
 
   return (
@@ -17,7 +16,6 @@ export const TodoFilter: React.FC<Props> = ({
           <select
             data-cy="statusSelect"
             onChange={e => {
-              setStatus(e.target.value);
               onStatusChange(e.target.value);
             }}
           >
